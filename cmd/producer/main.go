@@ -12,6 +12,9 @@ func main() {
 	if err := Publish("mensagem", "teste", producer, nil); err != nil {
 		log.Printf("Falha ao publicar a mensagem: %s", err.Error())
 	}
+
+	// Tempo de espera pós publicação
+	// Para evitar a saida do programa sem que antes a mensagem seja publicada
 	producer.Flush(1000)
 
 }
