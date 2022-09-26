@@ -16,7 +16,7 @@ func main() {
 	}
 
 	go DeliveryReport(deliveryChan)
-	producer.Flush(1000)
+	producer.Flush(1500)
 }
 
 func NewKafkaProducer() *kafka.Producer {
