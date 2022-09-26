@@ -22,7 +22,10 @@ func main() {
 func NewKafkaProducer() *kafka.Producer {
 	// Cria mapa de configuração
 	configMap := &kafka.ConfigMap{
-		"bootstrap.servers": "gokafka-kafka-1:9092",
+		"bootstrap.servers":   "gokafka-kafka-1:9092",
+		"delivery.timeout.ms": "2000",
+		"acks":                "all",  // todos os replicantes devem receber
+		"enable.idempotence":  "true", // entrega na ordem sem repetição
 	}
 
 	// Gera um novo kafka-producer (Produtor de conteudo)
